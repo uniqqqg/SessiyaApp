@@ -19,7 +19,6 @@ struct TaskView: View {
 	}
 	
     var body: some View {
-		
 		sectionContainer
 		Spacer()
 		buttonContainer
@@ -41,7 +40,7 @@ struct TaskView: View {
 					
 				}
 				
-				DatePicker("Время", selection: $viewModel.selectedDate)
+			DatePicker("Время", selection: $viewModel.selectedTime)
 				.foregroundStyle(.black)
 		}
 			.fontWeight(.semibold)
@@ -56,10 +55,11 @@ struct TaskView: View {
 				actionSave(viewModel.taskModel)
 				dismiss()
 			} label: {
-				Text("Сохранить")
+				Text(viewModel.configuration == .create ? "Создать задачу" : "Сохранить изменения")
 					.frame(maxWidth: .infinity, maxHeight: 50)
 
 			}
+			.disabled(viewModel.isSaveDisabled)
 			.padding()
 			.buttonStyle(.borderedProminent)
 			

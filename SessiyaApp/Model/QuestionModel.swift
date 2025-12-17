@@ -1,5 +1,5 @@
 //
-//  QestionModel.swift
+//  QuestionModel.swift
 //  SessiyaApp
 //
 //  Created by Глеб Моргунов on 23.11.25.

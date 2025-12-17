@@ -12,8 +12,8 @@ extension Date {
 	var month: Int { Calendar.current.component(.month, from: self) }//возвращает месяц текущий
 	var year: Int { Calendar.current.component(.year, from: self) }//возвращает год текущий
 	var weekday: Int { Calendar.current.component(.weekday, from: self) }
-	var dayOfMonth: Int { DateManager.shared.now.day } //
-	var dayOfWeek: String { DateManager.shared.now.monthName }
+	var dayOfMonth: Int { Calendar.current.component(.day, from: self) }
+	var dayOfWeek: String { weekdayName }
 	
 	var monthName: String {
 		Calendar.current.monthSymbols[month - 1]
@@ -26,12 +26,11 @@ extension Date {
 			Calendar.current.shortWeekdaySymbols[weekday - 1]
 		}
 	
-	
-	
 	var range: Range<Int>? {
-		Calendar.current.range(of: .day, in: .month, for: Date.now)
+		Calendar.current.range(of: .day, in: .month, for: self)
 	}
 	
 	
 	
 }
+

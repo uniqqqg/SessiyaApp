@@ -9,30 +9,34 @@ import SwiftUI
 
 struct TaskCellView: View {
 	
-	let model: TaskModel
-	
+    let model: TaskModel
+
+
     var body: some View {
-		VStack(alignment: .leading, spacing: 0) {
-			Text(model.title)
-				.foregroundStyle(.white)
-				.font(.system(size: 20))
-				.lineLimit(2)
-				.fontWeight(.semibold)
-				.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-				.padding()
-			
-			Text(model.description)
-				.foregroundStyle(.white)
-				.frame(maxWidth: .infinity, maxHeight: .infinity)
-				.padding()
-			
-		}
-		.frame(width: 150, height: 150)
-		.background(.blue)
-		.clipShape(.rect(cornerRadius: 16))
+        VStack(alignment: .leading, spacing: 25) {
+            Text(model.title)
+                .font(.system(size: 18))
+                .fontWeight(.semibold)
+
+            Text("\(model.selectedTime, format: .dateTime.hour().minute())")
+                .font(.subheadline)
+
+            Text(model.description)
+                .font(.caption)
+        }
+        .padding()
+        .foregroundStyle(.black)
+        .frame(width: 120, height: 140, alignment: .leading)
+		.background(Color.random.opacity(0.3))
+        .lineLimit(2)
+		.overlay(
+			RoundedRectangle(cornerRadius: 16, style: .continuous)
+				.stroke(Color.black.opacity(0.25), lineWidth: 2)
+		)
+        .clipShape(.rect(cornerRadius: 16))
     }
 }
 
 #Preview {
-	TaskCellView(model: .init(title: "Математика", description: "Сделать дз до завтра обазательно"))
+	TaskCellView(model: .init(title: "", description: ""))
 }

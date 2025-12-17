@@ -17,7 +17,7 @@ class MainViewModel: ObservableObject {
 		TabItemData(imageName: "gauge.with.needle", destination: AnyView(TimerView())),
 		TabItemData(imageName: "plus.app.fill", destination: AnyView(AddDataView())),
 		TabItemData(imageName: "gear", destination: AnyView(SettingsView())),
-		TabItemData(imageName: "person.crop.circle.fill", destination: AnyView(ProfileView()))
+		TabItemData(imageName: "person.crop.circle.fill", destination: AnyView(ProfileView(viewModel: .init())))
 	]
 	
 }
