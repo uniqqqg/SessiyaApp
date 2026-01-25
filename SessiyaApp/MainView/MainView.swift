@@ -23,6 +23,8 @@ struct MainView: View {
 		}
 		.tabViewStyle(.automatic)
 		.tint(.blue)
+		
+		.navigationBarBackButtonHidden(true)
 	}
 }
 

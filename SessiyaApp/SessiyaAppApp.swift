@@ -12,13 +12,11 @@ struct SessiyaAppApp: App {
 	
 	@AppStorage("hasCompletedOnboarding") var hasCompletedOnboarding = false
 
-    var body: some Scene {
+   var body: some Scene {
         WindowGroup {
-			if hasCompletedOnboarding {
-				HomeView()
-			} else {
-				HomeView()
-				}
+			MainView()
+				
+			//			StartingScreen()
         }
     }
 }

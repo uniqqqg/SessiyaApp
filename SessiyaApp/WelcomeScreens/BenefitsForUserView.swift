@@ -68,7 +68,7 @@ struct BenefitsForUserView: View {
 			.frame(maxWidth: .infinity, maxHeight: .infinity)
 			.background(
 				RoundedRectangle(cornerRadius: 32, style: .continuous)
-					.fill(Color.black.opacity(0.28))
+					.fill(Color.system)
 					.overlay(
 						RoundedRectangle(cornerRadius: 32, style: .continuous)
 							.stroke(Color.white.opacity(0.15), lineWidth: 1)

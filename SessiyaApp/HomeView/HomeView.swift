@@ -11,7 +11,7 @@ import HorizonCalendar
 struct HomeView: View {
 	
 	@StateObject var viewModel = HomeViewModel()
-	
+	@AppStorage("name") var name: String = ""
 	
 	var body: some View {
 		NavigationStack {
@@ -49,6 +49,8 @@ struct HomeView: View {
 			}
 			
  		}
+		
+		.navigationBarBackButtonHidden(true)
 	}
 	
 	private var welcomeView: some View {
@@ -63,9 +65,9 @@ struct HomeView: View {
 					.font(.system(size: 26))
 					.fontWeight(.black	)
 					.foregroundStyle(.system)
-					.shadow(color: .gray, radius: 15, x: 0, y: 7)
+//					.shadow(color: .gray, radius: 15, x: 0, y: 7)
 				
-				Text("Глеб")
+				Text(name.isEmpty ? "user" : name)
 					.font(.system(size: 22))
 					.fontWeight(.light)
 			}
@@ -89,9 +91,9 @@ struct HomeView: View {
 					.foregroundStyle(.system)
 			}
 			RoundedRectangle(cornerRadius: 12)
-				.foregroundStyle(.white)
+				.foregroundStyle(Color(UIColor.systemBackground))
 				.frame(maxWidth: .infinity, minHeight: 130, maxHeight: 130)
-				.shadow(color: .gray, radius: 7, x: 0, y: 10)
+//				.shadow(color: .primary, radius: 7, x: 0, y: 10)
 				.gesture(
 					DragGesture()
 						.onEnded { value in
@@ -175,7 +177,7 @@ struct HomeView: View {
 											Text("\(days)")
 												.frame(width: viewModel.cellWidth, height: 30)
 												.font(.system(size: 18))
-												.foregroundStyle(.black)
+												.foregroundStyle(.primary)
 												.fontWeight(.light)
 											
 											
@@ -226,6 +228,7 @@ struct HomeView: View {
 							description: Text("Нажми + чтобы добавить первую задачу")
 						)
 						.padding()
+						.foregroundStyle(.primary)
 					}
 				} else {
 					VStack(spacing: .zero) {
